@@ -1,4 +1,7 @@
 import streamlit as st
+source /home/adminuser/venv/bin/activate
+pip install python-dotenv
+streamlit run /mount/src/newchat/app.py
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
