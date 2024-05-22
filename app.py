@@ -31,7 +31,7 @@ def get_text_chunks(text):
 
 
 def get_vectorstore(text_chunks):
-  embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
+    embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
     vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
     return vectorstore
 
