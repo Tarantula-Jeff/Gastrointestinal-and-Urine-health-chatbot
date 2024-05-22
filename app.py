@@ -15,7 +15,7 @@ def get_pdf_text():
      relative_pdf_path = "FeedDocs/Urine and poop health.pdf"
      text = ""
      pdf_reader = PdfReader(fixed_pdf_path)
-    for page in pdf_reader.pages:
+     for page in pdf_reader.pages:
             text += page.extract_text()
             return text
         
