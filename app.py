@@ -12,7 +12,7 @@ from htmlTemplates import css, bot_template, user_template
 
 
 def get_pdf_text():
-    fixed_pdf_path = "C:\\Users\\jeffr\\Desktop\\SturineChat\\FeedDocs\\Urine and poop health.pdf"
+    fixed_pdf_path = FeedDocs
     text = ""
     pdf_reader = PdfReader(fixed_pdf_path)
     for page in pdf_reader.pages:
