@@ -11,6 +11,7 @@ from langchain_community.embeddings import OpenAIEmbeddings
 from htmlTemplates import css, bot_template, user_template
 
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+print(f"Retrieved API Key: {OPENAI_API_KEY}") 
 def get_pdf_text():
      relative_pdf_path = "FeedDocs/Urine and poop health.pdf"
      text = ""
