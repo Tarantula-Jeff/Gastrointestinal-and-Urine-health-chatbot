@@ -32,8 +32,8 @@ def get_text_chunks(text):
 
 
 def get_vectorstore(text_chunks):
-      if not OPENAI_API_KEY:
-        raise ValueError("OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.")
+    if not OPENAI_API_KEY:
+       raise ValueError("OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.")
            
     embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
     vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
