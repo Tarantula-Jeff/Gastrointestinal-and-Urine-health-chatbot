@@ -10,7 +10,7 @@ from langchain_community.chat_models import ChatOpenAI
 from langchain_community.embeddings import OpenAIEmbeddings
 from htmlTemplates import css, bot_template, user_template
 
-OPENAI_API_KEY = st.secrets[OPENAI_API_KEY]
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 print(f"Retrieved API Key: {OPENAI_API_KEY}") 
 def get_pdf_text():
      relative_pdf_path = "FeedDocs/Urine and poop health.pdf"
@@ -32,6 +32,9 @@ def get_text_chunks(text):
 
 
 def get_vectorstore(text_chunks):
+      if not OPENAI_API_KEY:
+        raise ValueError("OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.")
+           
     embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
     vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
     return vectorstore
