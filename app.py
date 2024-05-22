@@ -10,7 +10,7 @@ from langchain_community.chat_models import ChatOpenAI
 from langchain_community.embeddings import OpenAIEmbeddings
 from htmlTemplates import css, bot_template, user_template
 
-
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 def get_pdf_text():
      relative_pdf_path = "FeedDocs/Urine and poop health.pdf"
      text = ""
@@ -67,7 +67,7 @@ def handle_userinput(user_question):
 
 
 def main():
-    load_dotenv()
+    
     st.set_page_config(page_title="Sturine Chatbot", page_icon=":robot_face:")
     st.write(css, unsafe_allow_html=True)
 
