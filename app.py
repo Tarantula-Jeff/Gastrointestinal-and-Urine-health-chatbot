@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
@@ -10,8 +11,7 @@ from langchain_community.chat_models import ChatOpenAI
 from langchain_community.embeddings import OpenAIEmbeddings
 from htmlTemplates import css, bot_template, user_template
 
-OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
-print(f"Retrieved API Key: {OPENAI_API_KEY}") 
+api_key =os.getenv('OPENAI_API_KEY')
 def get_pdf_text():
      relative_pdf_path = "FeedDocs/Urine and poop health.pdf"
      text = ""
@@ -32,15 +32,12 @@ def get_text_chunks(text):
 
 
 def get_vectorstore(text_chunks):
-    if not OPENAI_API_KEY:
-       raise ValueError("OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.")
-           
-    embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
+    embeddings = OpenAIEmbeddings(openai_api_key=api_key)
     vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
     return vectorstore
 
 def get_conversation_chain(vectorstore):
-    llm = ChatOpenAI(api_key=OPENAI_API_KEY)
+   llm = ChatOpenAI(api_key=api_key)
     memory = ConversationBufferMemory(
         memory_key='chat_history', return_messages=True)
     conversation_chain = ConversationalRetrievalChain.from_llm(
