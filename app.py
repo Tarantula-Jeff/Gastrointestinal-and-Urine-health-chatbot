@@ -70,8 +70,8 @@ def handle_userinput(user_question):
 def main():
      api_key =os.getenv('OPENAI_API_KEY')
     
-    st.set_page_config(page_title="Sturine Chatbot", page_icon=":robot_face:")
-    st.write(css, unsafe_allow_html=True)
+     st.set_page_config(page_title="Sturine Chatbot", page_icon=":robot_face:")
+     st.write(css, unsafe_allow_html=True)
 
     
     if "chat_history" not in st.session_state:
