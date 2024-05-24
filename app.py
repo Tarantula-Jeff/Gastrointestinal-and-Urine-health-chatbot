@@ -34,7 +34,7 @@ def get_text_chunks(text):
 def get_vectorstore(text_chunks):
      embeddings = OpenAIEmbeddings()
      vectorstore = FAISS.from_texts(texts=text_chunks,embedding=embeddings)
-    return vectorstore
+     return vectorstore
 
 def get_conversation_chain(vectorstore):
    llm = ChatOpenAI()
