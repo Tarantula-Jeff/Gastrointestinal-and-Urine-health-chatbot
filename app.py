@@ -68,6 +68,7 @@ def handle_userinput(user_question):
 
 
 def main():
+     os.environ['OPENAI_API_KEY'] = api_key
     
      st.set_page_config(page_title="Sturine Chatbot", page_icon=":robot_face:")
      st.write(css, unsafe_allow_html=True)
