@@ -11,8 +11,8 @@ from langchain_community.chat_models import ChatOpenAI
 from langchain_community.embeddings import OpenAIEmbeddings
 from htmlTemplates import css, bot_template, user_template
 
+api_key = os.getenv("OPENAI_API_KEY")
 
-load_dotenv()
 def get_pdf_text():
      relative_pdf_path = "FeedDocs/Urine and poop health.pdf"
      text = ""
@@ -33,13 +33,13 @@ def get_text_chunks(text):
 
 
 def get_vectorstore(text_chunks):
-    embeddings = OpenAIEmbeddings()
+    embeddings = OpenAIEmbeddings(openai_api_key=api_key)
     vectorstore = FAISS.from_texts(texts=text_chunks,embedding=embeddings)
     return vectorstore
 
 
 def get_conversation_chain(vectorstore):
-   llm = ChatOpenAI()
+   llm = ChatOpenAI(openai_api_key=api_key)
    memory = ConversationBufferMemory(
         memory_key='chat_history', return_messages=True)
    conversation_chain = ConversationalRetrievalChain.from_llm(
@@ -71,7 +71,7 @@ def handle_userinput(user_question):
 
 def main():
   
-    load_dotenv()
+    
     st.set_page_config(page_title="Sturine Chatbot", page_icon=":robot_face:")
     st.write(css, unsafe_allow_html=True)
 
