@@ -8,7 +8,7 @@ from langchain_community.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain_community.chat_models import ChatOpenAI
-from langchain_community.embeddings import OpenAIEmbeddings
+
 from htmlTemplates import css, bot_template, user_template
 
 api_key = os.getenv("OPENAI_API_KEY")
