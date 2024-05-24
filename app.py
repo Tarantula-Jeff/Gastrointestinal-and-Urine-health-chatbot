@@ -45,7 +45,7 @@ def get_conversation_chain(vectorstore):
         retriever=vectorstore.as_retriever(),
         memory=memory
     )
-    return conversation_chain
+   return conversation_chain
 
 def handle_userinput(user_question):
       if "conversation" not in st.session_state:
