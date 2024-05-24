@@ -33,9 +33,10 @@ def get_text_chunks(text):
 
 
 def get_vectorstore(text_chunks):
-     embeddings = OpenAIEmbeddings(openai_api_key=api_key)
-     vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
-     return vectorstore
+    embeddings = OpenAIEmbeddings()
+    vectorstore = FAISS.from_texts(texts=text_chunks,embedding=embeddings)
+    return vectorstore
+
 
 def get_conversation_chain(vectorstore):
    llm = ChatOpenAI()
@@ -70,7 +71,7 @@ def handle_userinput(user_question):
 
 def main():
   
-    
+    load_dotenv()
     st.set_page_config(page_title="Sturine Chatbot", page_icon=":robot_face:")
     st.write(css, unsafe_allow_html=True)
 
