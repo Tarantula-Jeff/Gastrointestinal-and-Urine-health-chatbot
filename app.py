@@ -14,12 +14,12 @@ from htmlTemplates import css, bot_template, user_template
 
 
 def get_pdf_text():
-     fixed_pdf_path = "FeedDocs/Urine and poop health4.pdf"
-     text = ""
-     pdf_reader = PdfReader(fixed_pdf_path)
-     for page in pdf_reader.pages:
-         text += page.extract_text()
-     return text
+    fixed_pdf_path = "FeedDocs/Urine and poop health4.pdf"
+    text = ""
+    pdf_reader = PdfReader(fixed_pdf_path)
+    for page in pdf_reader.pages:
+        text += page.extract_text()
+    return text 
         
 def get_text_chunks(text):
     text_splitter = CharacterTextSplitter(
