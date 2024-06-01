@@ -28,7 +28,7 @@ css = '''
 bot_template = r'''
 <div class="chat-message bot">
     <div class="avatar">
-        <img src="C:\\Users\\jeffr\\Desktop\SturineChat\\IMG\\Screenshot 2024-04-24 022941.png">
+        <img src="IMG/Screenshot 2024-04-24 022941.png">
     </div>
     <div class="message">{{MSG}}</div>
 </div>
