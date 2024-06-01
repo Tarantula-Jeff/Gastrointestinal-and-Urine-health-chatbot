@@ -37,7 +37,7 @@ bot_template = r'''
 user_template = r'''
 <div class="chat-message user">
     <div class="avatar">
-        <img src="C:\Users\jeffr\Desktop\SturineChat\IMG\J.png">
+        <img src="IMG/J.png">
     </div>    
     <div class="message">{{MSG}}</div>
 </div>
