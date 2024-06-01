@@ -14,7 +14,7 @@ from htmlTemplates import css, bot_template, user_template
 
 
 def get_pdf_text():
-     fixed_pdf_path = "FeedDocs/Urine and poop health2.pdf"
+     fixed_pdf_path = "FeedDocs/Urine and poop health3.pdf"
      text = ""
      pdf_reader = PdfReader(fixed_pdf_path)
      for page in pdf_reader.pages:
