@@ -18,8 +18,8 @@ def get_pdf_text():
      text = ""
      pdf_reader = PdfReader(fixed_pdf_path)
      for page in pdf_reader.pages:
-            text += page.extract_text()
-            return text
+         text += page.extract_text()
+     return text
         
 def get_text_chunks(text):
     text_splitter = CharacterTextSplitter(
