@@ -106,6 +106,9 @@ def handle_userinput(user_question):
 def main():
     load_dotenv()
 
+    if "OPENAI_API_KEY" in st.secrets:
+        os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+
     st.set_page_config(
         page_title="Sturine Chatbot",
         page_icon="🤖"
